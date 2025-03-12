@@ -36,8 +36,6 @@ public abstract class Person {
         return id;
     }
 
-
-
     public String getName() {
         return name;
     }
