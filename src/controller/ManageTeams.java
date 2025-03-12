@@ -31,7 +31,10 @@ public class ManageTeams {
         System.out.println("le joueur a été ajouté avec succès");
     }
 
-    public void removePlayer(Player player, Teams teamsSource){}
+    public void removePlayer(Player player, Teams teamsSource){
+        //Bruno;
+
+    }
     public void transferPlayer(Player player, Teams teamsSource,Teams teamsDestination, double amountTransfer){}
 
 }
