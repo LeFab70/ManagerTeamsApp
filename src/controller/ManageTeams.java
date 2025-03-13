@@ -5,33 +5,126 @@
  */
 package controller;
 
-import entities.Player;
-import entities.Teams;
-import exceptions.PlayerAlreadySavedException;
-import exceptions.TeamsFullException;
+import entities.*;
+import exceptions.*;
+import utils.Utils;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ManageTeams {
+    private static  final int MAX_PLAYERS=25;
+    private static List<Player> playersList =new ArrayList<Player>();
+    private static  final int MAX_GOALKEEPERS =25;
+    private static List<Goalkeeper> goalkeeperList =new ArrayList<Goalkeeper>();
+    private static Coach coach;
 
 
-    public void addPlayer(Player player, Teams teamsDestination) throws TeamsFullException, PlayerAlreadySavedException {
-        List<Player> players=teamsDestination.getPlayers();
-        if (player ==null)
-            throw new NullPointerException("Le joueur n'est pas définir");
-        if (players.size()>=25)
-            throw new TeamsFullException("Liste de l'équipe pleine");
-        if(players.contains(player))
-            throw new PlayerAlreadySavedException("Joueur déjà dans la liste");
+    //Ajouter un nouveau joueur ou coach ou gardien dans la liste avec des contraintes définies
+    public void addPlayer(Person person, Teams teamsDestination) throws TeamsFullException, PlayerAlreadySavedException, TeamBudgetMaxException, CoachAlreadyExist {
+        if (person ==null || teamsDestination==null)
+            throw new IllegalArgumentException("Fournir les paramètres");
 
-        //todo: tester le budget du club par rapport au salaire du joueur
+        //Tester le budget de l'équipe
+        Utils.checkBudget(person, teamsDestination, 0);
 
-        players.add(player);
-        System.out.println("le joueur a été ajouté avec succès");
+        //Cas joueur
+        if(person instanceof Player && !(person instanceof Goalkeeper)) {
+            //liste des joueurs de l'équipe de destination
+            playersList = teamsDestination.getPlayers();
+            if (playersList.size() >= MAX_PLAYERS)
+                throw new TeamsFullException("Liste de l'équipe pleine");
+            if (playersList.contains((Player)person))
+                throw new PlayerAlreadySavedException("Joueur déjà dans la liste");
+            //Si tout est ok==pas d'exceptions alors
+            playersList.add((Player) person);
+        } else if (person instanceof Coach) {//Cas coach
+            //coach l'équipe de destination s'il existe
+            coach=teamsDestination.getCoach();
+            if (coach!=null)
+                throw new CoachAlreadyExist(teamsDestination.getName() + " a dèjà un coach");
+            //Ajout du coach
+            teamsDestination.setCoach((Coach) person);
+
+        } else if (person instanceof Goalkeeper) {
+
+            goalkeeperList=teamsDestination.getGoalkeepers();
+            if (goalkeeperList.size()>= MAX_GOALKEEPERS)
+                throw new TeamsFullException("Liste des gardiens l'équipe pleine");
+            if(goalkeeperList.contains((Goalkeeper)person))
+                throw new PlayerAlreadySavedException("Gardien déjà dans la liste");
+            //Si tout est ok==pas d'exceptions alors
+            goalkeeperList.add((Goalkeeper)person);
+        }
+        else {
+            throw new IllegalArgumentException("Aucune classe correspondante");
+        }
+
+
+        // Après ajout du joueur/gardien/coach, on met à jour le budget de l'équipe
+        teamsDestination.setBudgetMax(teamsDestination.getBudgetMax()-person.getSalary());
+        System.out.println("le player "+person.getName()+"a été ajouté avec succès");
     }
 
-    public void removePlayer(Player player, Teams teamsSource){}
-    public void transferPlayer(Player player, Teams teamsSource,Teams teamsDestination, double amountTransfer){}
+
+    //Retrait d'un joueur dans la liste
+    public void removePlayer(Person person, Teams teamsSource) throws PlayerNotFoundException, TeamBudgetMaxException {
+        if (person ==null || teamsSource==null)
+            throw new IllegalArgumentException("Fournir les paramètres");
+
+        //Cas joueur
+        if(person instanceof Player && !(person instanceof Goalkeeper)) {
+            //liste des joueurs de l'équipe de destination
+            playersList = teamsSource.getPlayers();
+            if(!playersList.contains((Player)person))
+                throw new PlayerNotFoundException("Joueur non présent dans la liste de l'équipe");
+            //Si tout est ok==pas d'exceptions alors
+            playersList.remove((Player) person);
+
+        } else if (person instanceof Coach) {//Cas coach
+            //coach l'équipe de destination s'il existe
+            coach=teamsSource.getCoach();
+            if (!coach.equals((Coach)person))
+                throw new PlayerNotFoundException("Coach non présent dans l'équipe");
+            //retrait du coach
+            teamsSource.setCoach(null);
+
+        } else if (person instanceof Goalkeeper) {
+
+            goalkeeperList=teamsSource.getGoalkeepers();
+             if(!goalkeeperList.contains((Goalkeeper)person))
+                 throw new PlayerNotFoundException("Gardien non présent dans la liste de l'équipe");
+            //Si tout est ok==pas d'exceptions alors
+            goalkeeperList.remove((Goalkeeper)person);
+        }
+        else {
+            throw new IllegalArgumentException("Aucune classe correspondante");
+        }
+
+
+        // Mettre à jour le budget de l'équipe
+        teamsSource.setBudgetMax(teamsSource.getBudgetMax()+ person.getSalary());
+        System.out.println("la personne "+person.getName()+"a été supprimé avec succès");
+    }
+
+    //Transfert d'un joueur d'une équipe à une autre
+    public void transferPlayer(Person person, Teams teamsSource,Teams teamsDestination, double amountTransfer) throws PlayerNotFoundException, TeamBudgetMaxException, TeamsFullException, PlayerAlreadySavedException, CoachAlreadyExist {
+
+        if (person ==null || teamsSource==null || teamsDestination==null)
+            throw new IllegalArgumentException("Fournir les paramètres");
+        //Tester le budget de l'équipe
+        Utils.checkBudget(person, teamsDestination, amountTransfer);
+
+        // retirer le joueur de son équipe
+        removePlayer(person, teamsSource);
+        //ajouter le joueur dans la nouvelle équipe
+        addPlayer(person, teamsDestination);
+
+        // transférer la personne et mettre à jour le budget de l'équipe
+        teamsDestination.setBudgetMax(teamsDestination.getBudgetMax()-amountTransfer);
+        System.out.println("le player "+person.getName()+"a été transféré de" + teamsSource.getName()+" avec succès vers "+teamsDestination.getName());
+        //Todo: comment régler le soucis de annulation de transfert si on a déjà retirer le joueur est qu'il ya une erreur dans l'ajout?? Rollback??
+    }
 
 }
