@@ -13,7 +13,7 @@ public class Teams {
     private Coach coach;
 
     //les players ainsi que les gardiens seront ajoutés suivant les méthodes statiques définies dans gestionEquipe
-    public Teams(int id, String name, double budgetMax) {
+    public Teams( String name, double budgetMax) {
         this.id = count.getAndIncrement();
         this.name = name;
         this.budgetMax = budgetMax;
@@ -79,7 +79,7 @@ public class Teams {
                 ", players=" + players +
                 ", goalkeepers=" + goalkeepers +
                 ", budgetMax=" + budgetMax +
-                "Coach= "+coach+
+                " Coach= "+coach+
                 '}';
     }
 }
