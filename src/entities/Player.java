@@ -15,6 +15,13 @@ public class Player extends Person{
 
     public Player(String name, String surname, LocalDate dateOfBirth, double salary, String nationality, double weight, double height, int numberOfPass, int numberOfGoals, int number, String talent, FieldPosition fieldPosition) throws DateOfBirthException, SalaryException {
         super(name, surname, dateOfBirth, salary, nationality, weight, height);
+        if (dateOfBirth == null) {
+            throw new DateOfBirthException("La date de naissance ne peut pas être nulle.");
+        }
+
+        if (salary <= 0) {
+            throw new SalaryException("Le salaire doit être supérieur à zéro.");
+        }
         this.numberOfPass = numberOfPass;
         this.numberOfGoals = numberOfGoals;
         this.number = number;

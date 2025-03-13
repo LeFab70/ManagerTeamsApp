@@ -22,7 +22,7 @@ public class ManageTeams {
 
 
     //Ajouter un nouveau joueur ou coach ou gardien dans la liste avec des contraintes définies
-    public void addPlayer(Person person, Teams teamsDestination) throws TeamsFullException, PlayerAlreadySavedException, TeamBudgetMaxException, CoachAlreadyExist {
+    public static void addPlayer(Person person, Teams teamsDestination) throws TeamsFullException, PlayerAlreadySavedException, TeamBudgetMaxException, CoachAlreadyExist {
         if (person ==null || teamsDestination==null)
             throw new IllegalArgumentException("Fournir les paramètres");
 
@@ -69,7 +69,7 @@ public class ManageTeams {
 
 
     //Retrait d'un joueur dans la liste
-    public void removePlayer(Person person, Teams teamsSource) throws PlayerNotFoundException, TeamBudgetMaxException {
+    public static void removePlayer(Person person, Teams teamsSource) throws PlayerNotFoundException, TeamBudgetMaxException {
         if (person ==null || teamsSource==null)
             throw new IllegalArgumentException("Fournir les paramètres");
 
@@ -109,7 +109,7 @@ public class ManageTeams {
     }
 
     //Transfert d'un joueur d'une équipe à une autre
-    public void transferPlayer(Person person, Teams teamsSource,Teams teamsDestination, double amountTransfer) throws PlayerNotFoundException, TeamBudgetMaxException, TeamsFullException, PlayerAlreadySavedException, CoachAlreadyExist {
+    public static void transferPlayer(Person person, Teams teamsSource,Teams teamsDestination, double amountTransfer) throws PlayerNotFoundException, TeamBudgetMaxException, TeamsFullException, PlayerAlreadySavedException, CoachAlreadyExist {
 
         if (person ==null || teamsSource==null || teamsDestination==null)
             throw new IllegalArgumentException("Fournir les paramètres");

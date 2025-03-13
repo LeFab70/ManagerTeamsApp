@@ -19,10 +19,16 @@ public abstract class Person {
     private double height;
 
     public Person(final String name, final  String surname, final  LocalDate dateOfBirth, final double salary, final String nationality, final double weight, final double height) throws DateOfBirthException, SalaryException {
+        if (dateOfBirth == null) {
+            throw new DateOfBirthException("La date de naissance ne peut pas être nulle.");
+        }
+
+        this.dateOfBirth = dateOfBirth;
         this.id=count.getAndIncrement();
         this.name = name;
         this.surname = surname;
-        setDateOfBirth(dateOfBirth);
+        //setDateOfBirth(dateOfBirth);
+        this.dateOfBirth=dateOfBirth;
         setSalary(salary);
         this.nationality = nationality;
         this.weight = weight;
@@ -57,6 +63,12 @@ public abstract class Person {
     }
 
     public void setDateOfBirth(LocalDate dateOfBirth) throws DateOfBirthException {
+
+        if (dateOfBirth == null) {
+            throw new DateOfBirthException("La date de naissance ne peut pas être nulle.");
+        }
+
+
         if (getAge()<=18)
             throw new DateOfBirthException("La date de naissance doit correspondre à au moins de 18 ans");
         this.dateOfBirth = dateOfBirth;
