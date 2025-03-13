@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -7,8 +8,8 @@ public class Teams {
     private final static AtomicInteger count = new AtomicInteger(1);
     private int id;
     private String name;
-    private List<Player> players;
-    private List<Goalkeeper> goalkeepers;
+    private List<Player> players=new ArrayList<>();
+    private List<Goalkeeper> goalkeepers=new ArrayList<>();
     private double budgetMax;
     private Coach coach;
 
