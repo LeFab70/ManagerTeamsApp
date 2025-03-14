@@ -77,7 +77,7 @@ public class Player extends Person{
     public String toString() {
         return "Player{" +
                 super.toString()+
-                "fieldPosition=" + fieldPosition +
+                "  fieldPosition=" + fieldPosition +
                 ", talent='" + talent + '\'' +
                 ", number=" + number +
                 ", numberOfGoals=" + numberOfGoals +

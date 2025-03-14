@@ -75,7 +75,7 @@ public class Teams {
     @Override
     public String toString() {
         return "Teams{" +
-                "id=" + id +
+                " id= " + id +
                 ", name='" + name + '\'' +
                 ", players=" + players +
                 ", goalkeepers=" + goalkeepers +

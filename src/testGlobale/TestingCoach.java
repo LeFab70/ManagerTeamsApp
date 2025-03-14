@@ -52,9 +52,64 @@ public class TestingCoach {
                     Arrays.asList(StyleOfGame.JEU_SUR_LES_AILES, StyleOfGame.PRESSING_HAUT),
                     Licence.UEFA_A
             );
-        coaches.add(mourinho);
-            coaches.add(klopp);
-            coaches.add(guardiola);
+
+
+            Coach ancelotti = new Coach(
+                    "Carlo", "Ancelotti",
+                    LocalDate.parse("1959-06-10", formatter),
+                    3_200_000,
+                    "Italien",
+                    78.0, 1.78,
+                    25, 30,
+                    Arrays.asList(StyleOfGame.PRESSING_HAUT, StyleOfGame.CONTRE_ATTAQUE),
+                    Licence.UEFA_PRO
+            );
+
+            Coach zidane = new Coach(
+                    "Zinedine", "Zidane",
+                    LocalDate.parse("1972-06-23", formatter),
+                    3_500_000,
+                    "Français",
+                    81.0, 1.85,
+                    20, 25,
+                    Arrays.asList(StyleOfGame.TIKI_TAKA, StyleOfGame.JEU_SUR_LES_AILES),
+                    Licence.UEFA_A
+            );
+
+            Coach simone = new Coach(
+                    "Diego", "Simeone",
+                    LocalDate.parse("1970-04-28", formatter),
+                    4_000_000,
+                    "Argentin",
+                    80.0, 1.77,
+                    30, 35,
+                    Arrays.asList(StyleOfGame.BETON_DEFENSIF, StyleOfGame.PRESSING_HAUT),
+                    Licence.PRO
+            );
+
+            Coach conte = new Coach(
+                    "Antonio", "Conte",
+                    LocalDate.parse("1969-07-31", formatter),
+                    2_900_000,
+                    "Italien",
+                    79.0, 1.78,
+                    28, 30,
+                    Arrays.asList(StyleOfGame.CONTRE_ATTAQUE, StyleOfGame.PRESSING_HAUT),
+                    Licence.PRO
+            );
+            Coach deschamps = new Coach(
+                    "Didier", "Deschamps",
+                    LocalDate.parse("1968-10-15", formatter),
+                    3_500_000,
+                    "Français",
+                    76.0, 1.74,
+                    25, 28,
+                    Arrays.asList(StyleOfGame.BETON_DEFENSIF, StyleOfGame.CONTRE_ATTAQUE),
+                    Licence.UEFA_PRO
+            );
+
+            coaches.add(mourinho);
+            coaches.addAll(List.of(klopp,guardiola,ancelotti,zidane,simone,conte));
         return coaches;
 
         } catch (SalaryException e) {

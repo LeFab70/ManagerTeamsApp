@@ -17,11 +17,11 @@ public class TestingTeams {
             Teams barcelona = new Teams("FC Barcelona", 17_500_000);
             Teams valencia = new Teams("Valencia CF", 14_500_000);
             Teams sevilla = new Teams("Sevilla FC", 15_500_000);
-
-            teamsList.add(realMadrid);
-            teamsList.add(barcelona);
-            teamsList.add(sevilla);
-            teamsList.add(valencia);
+            Teams villarreal = new Teams("Villarreal CF", 150_000_000);
+            Teams realSociedad = new Teams("Real Sociedad", 130_000_000);
+            Teams realBetis = new Teams("Real Betis", 125_000_000);
+            Teams celtaVigo = new Teams("Celta Vigo", 100_000_000);
+            teamsList.addAll(List.of(realMadrid,barcelona,sevilla,valencia,villarreal,realSociedad,realBetis,celtaVigo));
            return teamsList;
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());

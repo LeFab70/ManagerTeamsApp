@@ -70,7 +70,7 @@ public class Goalkeeper extends Player{
     public String toString() {
         return "Goalkeeper{" +
                 super.toString()+
-                "reflexes=" + reflexes +
+                "  reflexes=" + reflexes +
                 ", numberOfPenaltiesSaved=" + numberOfPenaltiesSaved +
                 ", numberOfGoalsSaved=" + numberOfGoalsSaved +
                 ", numberOfGoalsConceded=" + numberOfGoalsConceded +

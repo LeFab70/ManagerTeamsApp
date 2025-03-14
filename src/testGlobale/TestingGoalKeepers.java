@@ -60,10 +60,83 @@ public class TestingGoalKeepers {
                     600, 250,
                     10
             );
+
+
+            Goalkeeper cech = new Goalkeeper(
+                    "Petr", "Cech",
+                    LocalDate.parse("1982-05-20", formatter),
+                    1_900_000,
+                    "Tchèque",
+                    90.0, 1.96,
+                    220, 0,
+                    1, "Casque d'acier",
+                    FieldPosition.GARDIEN,
+                    9, 28,
+                    500, 270,
+                    9
+            );
+
+            Goalkeeper vanDerSar = new Goalkeeper(
+                    "Edwin", "van der Sar",
+                    LocalDate.parse("1970-10-29", formatter),
+                    1_700_000,
+                    "Néerlandais",
+                    85.0, 1.97,
+                    210, 0,
+                    1, "Mur Orange",
+                    FieldPosition.GARDIEN,
+                    8, 30,
+                    550, 320,
+                    8
+            );
+
+            Goalkeeper barthez = new Goalkeeper(
+                    "Fabien", "Barthez",
+                    LocalDate.parse("1971-06-28", formatter),
+                    1_600_000,
+                    "Français",
+                    81.0, 1.80,
+                    130, 0,
+                    1, "Le Divin Chauve",
+                    FieldPosition.GARDIEN,
+                    7, 22,
+                    400, 240,
+                    7
+            );
+
+            Goalkeeper oblack = new Goalkeeper(
+                    "Jan", "Oblak",
+                    LocalDate.parse("1993-01-07", formatter),
+                    3_000_000,
+                    "Slovène",
+                    87.0, 1.88,
+                    250, 0,
+                    1, "Le Mur de Madrid",
+                    FieldPosition.GARDIEN,
+                    10, 42,
+                    450, 310,
+                    9
+            );
+
+            Goalkeeper courtois = new Goalkeeper(
+                    "Thibaut", "Courtois",
+                    LocalDate.parse("1992-05-11", formatter),
+                    2_800_000,
+                    "Belge",
+                    96.0, 1.99,
+                    240, 0,
+                    1, "La Tour Belge",
+                    FieldPosition.GARDIEN,
+                    10, 38,
+                    480, 290,
+                    10
+            );
+
+
+
             goalkeeperList.add(neuer);
             goalkeeperList.add(buffon);
-            goalkeeperList.add(casillas);
-
+            goalkeeperList.addAll(List.of(casillas,cech,vanDerSar,barthez,oblack,courtois));
             return goalkeeperList;
         } catch (SalaryException e) {
             throw new SalaryException(e.getMessage());
