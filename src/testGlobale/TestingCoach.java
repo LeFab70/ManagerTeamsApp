@@ -17,7 +17,7 @@ public class TestingCoach {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     //Create some Coach
-    public static List<Coach> createSomeCoach() throws SalaryException, DateOfBirthException {
+    public static void createSomeCoach() throws SalaryException, DateOfBirthException {
         try {
             // Création de trois coachs légendaires
             Coach guardiola = new Coach(
@@ -108,9 +108,30 @@ public class TestingCoach {
                     Licence.UEFA_PRO
             );
 
+            Coach fabrice = new Coach(
+                    "Fabrice", "Kouonang",
+                    LocalDate.parse("1990-10-15", formatter),
+                    3_500_000,
+                    "Camerounais", 90.0, 1.70,
+                    25, 28,
+                    Arrays.asList(StyleOfGame.BETON_DEFENSIF, StyleOfGame.CONTRE_ATTAQUE),
+                    Licence.UEFA_PRO
+            );
+
+            Coach bruno = new Coach(
+                    "Bruno", "",
+                    LocalDate.parse("1998-10-15", formatter),
+                    3_500_000,
+                    "Canadien",
+                    76.0, 1.74,
+                    25, 28,
+                    Arrays.asList(StyleOfGame.BETON_DEFENSIF, StyleOfGame.CONTRE_ATTAQUE),
+                    Licence.UEFA_PRO
+            );
+
             coaches.add(mourinho);
-            coaches.addAll(List.of(klopp,guardiola,ancelotti,zidane,simone,conte));
-        return coaches;
+            coaches.addAll(List.of(klopp,guardiola,ancelotti,zidane,simone,conte,fabrice,bruno));
+       // return coaches;
 
         } catch (SalaryException e) {
             throw new SalaryException(e.getMessage());
@@ -119,5 +140,10 @@ public class TestingCoach {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static List<Coach> getCoaches()
+    {
+        return coaches;
     }
 }

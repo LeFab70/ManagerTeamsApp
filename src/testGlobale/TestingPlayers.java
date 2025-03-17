@@ -16,7 +16,7 @@ public class TestingPlayers {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     //Add players
-    public static List<Player> createSomePlayers() throws Exception {
+    public static void createSomePlayers() throws Exception {
         try {
             // Création de players
             Player ronaldo = new Player(
@@ -53,7 +53,7 @@ public class TestingPlayers {
             playerList.add(ronaldo);
             playerList.add(ramos);
 
-            return playerList;
+           // return playerList;
 
         } catch (SalaryException e) {
             throw new SalaryException(e.getMessage());
@@ -62,5 +62,10 @@ public class TestingPlayers {
         } catch (Exception ex) {
             throw new Exception(ex.getMessage());
         }
+    }
+
+    public static List<Player> getPlayerList()
+    {
+        return playerList;
     }
 }

@@ -16,7 +16,7 @@ public class TestingGoalKeepers {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     //Create some GoalKeepers
-    public static List<Goalkeeper> createSomeGoalKeepers() throws SalaryException, DateOfBirthException {
+    public static void createSomeGoalKeepers() throws SalaryException, DateOfBirthException {
         try {
             // Création de trois gardiens légendaires
             Goalkeeper buffon = new Goalkeeper(
@@ -137,7 +137,7 @@ public class TestingGoalKeepers {
             goalkeeperList.add(neuer);
             goalkeeperList.add(buffon);
             goalkeeperList.addAll(List.of(casillas,cech,vanDerSar,barthez,oblack,courtois));
-            return goalkeeperList;
+           // return goalkeeperList;
         } catch (SalaryException e) {
             throw new SalaryException(e.getMessage());
         } catch (DateOfBirthException d) {
@@ -145,6 +145,11 @@ public class TestingGoalKeepers {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static List<Goalkeeper> getGoalkeeperList()
+    {
+        return goalkeeperList;
     }
 
 }

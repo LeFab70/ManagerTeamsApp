@@ -1,14 +1,20 @@
 package utils;
 
+import entities.Game;
 import entities.Person;
 import entities.Teams;
 import exceptions.TeamBudgetMaxException;
+import testGlobale.TestingTeams;
 
+import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 //Méthodes utilitaires
 public class Utils {
 
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     //Check budget du club
     public static void checkBudget(Person person, Teams teams,double amountTransfer) throws TeamBudgetMaxException {
@@ -26,5 +32,30 @@ public class Utils {
         {
             System.out.println(item);
         }
+    }
+
+
+    //Random Teams
+    public static Game teamsGames() throws FileNotFoundException {
+        //Valeurs intervalles des nombres aléatoires
+
+        List<Teams> allTeams=TestingTeams.getTeamsList(); //Liste des toutes les équipes
+        final int MAX_RANDOM = allTeams.size()-1;//Valeur pour toute la liste des équipes
+        final int MIN_RANDOM =0;  //premiere valeur possible pour la teams[0]
+        int randomNumberReceive = (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM + 1) + MIN_RANDOM);
+        int randomNumberVisitor =randomNumberReceive;
+        int scoreVisitorTeams=(int) (Math.random()*9+1); //pour générer un nombre de buts marqués pour l'équipe visiteur entre 0 et 10
+        int scoreReceptionTeams=(int) (Math.random()*9+1); //pour générer un nombre de buts marqués pour l'équipe qui reçoit entre 0 et 10
+        Teams teamsReceived=allTeams.get(randomNumberReceive);
+
+        //Obliger un autre random tant quon a la même équipe qui est tiré
+        do {
+            randomNumberVisitor = (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM + 1) + MIN_RANDOM);
+        } while (randomNumberReceive==randomNumberVisitor);
+        Teams teamsVisitor=allTeams.get(randomNumberVisitor);
+
+        //Mise à jour du match et retour des valeurs pour saving
+        return new Game(teamsReceived.getName(),teamsVisitor.getName(),scoreReceptionTeams,scoreVisitorTeams, LocalDate.parse(LocalDate.now().toString(), formatter),"Fabrice Kouonang");
+
     }
 }

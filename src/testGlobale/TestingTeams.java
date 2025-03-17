@@ -10,7 +10,7 @@ public class TestingTeams {
 
     private static final List<Teams> teamsList=new ArrayList<>();
     //Create some teams
-    public static List<Teams> createSomeTeams() {
+    public static void createSomeTeams() {
         try {
             // Création de 4 équipes célèbres avec un budget défini
             Teams realMadrid = new Teams("Real Madrid", 18_000_000);
@@ -22,11 +22,15 @@ public class TestingTeams {
             Teams realBetis = new Teams("Real Betis", 125_000_000);
             Teams celtaVigo = new Teams("Celta Vigo", 100_000_000);
             teamsList.addAll(List.of(realMadrid,barcelona,sevilla,valencia,villarreal,realSociedad,realBetis,celtaVigo));
-           return teamsList;
+
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
     }
 
+    public static List<Teams> getTeamsList()
+    {
+        return  teamsList;
+    }
 
 }
