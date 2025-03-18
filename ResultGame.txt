@@ -4,3 +4,6 @@ Game{receptionTeam=Real Betis, visitorTeam=FC Barcelona, recepTeamNumberGoals=9,
 Game{receptionTeam=Celta Vigo, visitorTeam=Real Sociedad, recepTeamNumberGoals=1, visitorTeamNumberGoals=6, dateOfGame=2025-03-17, refereeName='Fabrice Kouonang', id=1}
 Game{receptionTeam=Valencia CF, visitorTeam=Celta Vigo, recepTeamNumberGoals=9, visitorTeamNumberGoals=2, dateOfGame=2025-03-17, refereeName='Fabrice Kouonang', id=2}
 Game{receptionTeam=Celta Vigo, visitorTeam=FC Barcelona, recepTeamNumberGoals=2, visitorTeamNumberGoals=9, dateOfGame=2025-03-17, refereeName='Fabrice Kouonang', id=3}
+Game{receptionTeam=FC Barcelona, visitorTeam=Sevilla FC, recepTeamNumberGoals=5, visitorTeamNumberGoals=6, dateOfGame=2025-03-17, refereeName='Fabrice Kouonang', id=1}
+Game{receptionTeam=Real Betis, visitorTeam=Valencia CF, recepTeamNumberGoals=5, visitorTeamNumberGoals=4, dateOfGame=2025-03-17, refereeName='Fabrice Kouonang', id=2}
+Game{receptionTeam=Celta Vigo, visitorTeam=Real Sociedad, recepTeamNumberGoals=8, visitorTeamNumberGoals=4, dateOfGame=2025-03-17, refereeName='Fabrice Kouonang', id=3}
