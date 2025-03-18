@@ -1,3 +1,17 @@
+/*
+ * ====================================================================
+ * Nom du Programme     : Foot Manager
+ * Description         : Application de gestion d'équipes de football,
+ *                       permettant de gérer les joueurs, les coachs, les
+ *                       gardiens de but et les équipes, avec des fonctionnalités
+ *                       de transfert et de simulation de matchs.
+ * Auteur              :  Fabrice and Bruno
+ * Date de création    :  March 2025
+ * Dernière modification : 17 March 2025
+ * Version             : 1.0
+ * ====================================================================
+ */
+
 import controller.ManageTeams;
 import entities.*;
 import testGlobale.*;
@@ -8,7 +22,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
+/**
+ * The type Main.
+ */
 public class Main {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Exception the exception
+     */
     public static void main(String[] args) throws Exception {
         final ManageTeams manageTeamsController=new ManageTeams();
         System.out.println("========================Foot Manager testing====================");

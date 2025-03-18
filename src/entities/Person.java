@@ -1,3 +1,21 @@
+/**
+ * La classe abstraite Person représente une personne générique avec des informations personnelles
+ * telles que le nom, la date de naissance, le salaire, la nationalité, le poids et la taille.
+ *
+ * <p>Elle sert de base pour d'autres types de personnes comme les joueurs, coachs, etc.</p>
+ *
+ * <h2>Fonctionnalités principales :</h2>
+ * <ul>
+ *     <li>Génération automatique d'un identifiant unique.</li>
+ *     <li>Validation de la date de naissance (minimum 18 ans).</li>
+ *     <li>Validation du salaire (doit être positif).</li>
+ *     <li>Calcul automatique de l'âge.</li>
+ * </ul>
+ *
+ * @author Fabrice & Bruno
+ * @version 1.0
+ * @since 2025
+ */
 package entities;
 
 import exceptions.DateOfBirthException;
@@ -78,6 +96,9 @@ public abstract class Person {
         return salary;
     }
 
+    /**
+     * Le salaire doit defini et il doit etre positif
+     */
     public void setSalary(double salary) throws SalaryException {
         if(this.salary<0)
             throw new SalaryException("Le salaire défini doit être supérieur à zero");
@@ -108,6 +129,11 @@ public abstract class Person {
         this.height = height;
     }
 
+    /**
+     * Calcule l'âge du joueur à partir de sa date de naissance.
+     *
+     * @return l'âge du joueur en années.
+     */
     private int getAge(){
         return Period.between(this.dateOfBirth,LocalDate.now()).getYears();
     }

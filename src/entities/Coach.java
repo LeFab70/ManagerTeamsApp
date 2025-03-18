@@ -1,5 +1,19 @@
 package entities;
-
+/**
+ * La classe Coach hérite de la classe Person et représente un entraîneur avec des informations spécifiques
+ * comme le nombre d'années d'expérience, les titres remportés, le style de jeu et la licence.
+ *
+ * <h2>Fonctionnalités principales :</h2>
+ * <ul>
+ *     <li>Gère l'expérience et les titres du coach.</li>
+ *     <li>Supporte différents styles de jeu et types de licence.</li>
+ *     <li>Hérite des informations personnelles de la classe Person.</li>
+ * </ul>
+ *
+ * @author Fabrice & Bruno
+ * @version 1.0
+ * @since 2025
+ */
 import enums.Licence;
 import enums.StyleOfGame;
 import exceptions.DateOfBirthException;

@@ -1,3 +1,31 @@
+/**
+ * La classe {@code Utils} fournit des méthodes utilitaires pour la gestion de divers aspects du jeu,
+ * y compris la vérification du budget d'un club, l'affichage de listes d'objets et la génération de matchs
+ * aléatoires entre équipes.
+ *
+ * <h2>Fonctionnalités principales :</h2>
+ * <ul>
+ *     <li>Vérification du budget d'un club avant un transfert de joueur.</li>
+ *     <li>Affichage du contenu d'une liste d'objets.</li>
+ *     <li>Génération aléatoire de matchs entre équipes avec score et date.</li>
+ * </ul>
+ *
+ * <h2>Exemple d'utilisation :</h2>
+ * <pre>
+ *     // Vérification du budget d'un club
+ *     Utils.checkBudget(person, team, amountTransfer);
+ *
+ *     // Affichage d'une liste d'objets
+ *     Utils.displayObject(myList);
+ *
+ *     // Génération d'un match aléatoire
+ *     Game game = Utils.teamsGames();
+ * </pre>
+ *
+ * @author Fabrice Kouonang
+ * @version 1.0
+ * @since 2025
+ */
 package utils;
 
 import entities.Game;

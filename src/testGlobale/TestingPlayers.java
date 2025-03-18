@@ -1,3 +1,24 @@
+/**
+ * La classe {@code TestingPlayers} permet de créer une liste de joueurs célèbres, de les manipuler via une liste statique,
+ * et de gérer les exceptions liées aux salaires et aux dates de naissance.
+ *
+ * <h2>Fonctionnalités principales :</h2>
+ * <ul>
+ *     <li>Crée plusieurs joueurs célèbres avec des informations telles que le nom, la date de naissance, le salaire, la nationalité, etc.</li>
+ *     <li>Vérifie la validité des salaires et des dates de naissance à travers des exceptions personnalisées {@link SalaryException} et {@link DateOfBirthException}.</li>
+ *     <li>Fournit une méthode pour récupérer la liste de tous les joueurs créés.</li>
+ * </ul>
+ *
+ * <h2>Exemple d'utilisation :</h2>
+ * <pre>
+ *     TestingPlayers.createSomePlayers();  // Crée les joueurs
+ *     List<Player> players = TestingPlayers.getPlayerList();  // Récupère la liste des joueurs créés
+ * </pre>
+ *
+ * @author Fabrice & Bruno
+ * @version 1.0
+ * @since 2025
+ */
 package testGlobale;
 
 import entities.Player;
@@ -64,6 +85,11 @@ public class TestingPlayers {
         }
     }
 
+    /**
+     * Récupère la liste de tous les Players créés.
+     *
+     * @return Liste des Players.
+     */
     public static List<Player> getPlayerList()
     {
         return playerList;

@@ -1,8 +1,21 @@
 /**
- * @author Fabrice
+ * La classe ManageTeams permet de gérer les équipes de football,
+ * en ajoutant, retirant ou transférant des joueurs, coachs et gardiens.
+ * Elle inclut également une gestion du budget des équipes.
+ *
+ * <p>Fonctionnalités principales :</p>
+ * <ul>
+ *     <li>Ajouter des joueurs, coachs et gardiens avec vérification des limites.</li>
+ *     <li>Retirer un joueur, un coach ou un gardien d'une équipe.</li>
+ *     <li>Transférer un joueur d'une équipe à une autre avec contrôle de budget.</li>
+ *     <li>Supprimer une équipe de la liste globale des équipes.</li>
+ * </ul>
+ *
+ * @author Fabrice & Bruno
  * @version 1.0
- * @retun 0
+ * @since 2025
  */
+
 package controller;
 
 import entities.*;

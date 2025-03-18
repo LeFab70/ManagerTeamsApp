@@ -1,3 +1,26 @@
+/**
+ * La classe {@code FileMethods} fournit des méthodes utilitaires pour la gestion de fichiers,
+ * permettant de lire et d'écrire des données dans des fichiers texte.
+ *
+ * <h2>Fonctionnalités principales :</h2>
+ * <ul>
+ *     <li>Écrire un message dans un fichier texte en mode ajout.</li>
+ *     <li>Lire le contenu d'un fichier texte et retourner une liste de ses lignes.</li>
+ * </ul>
+ *
+ * <h2>Exemple d'utilisation :</h2>
+ * <pre>
+ *     // Écriture dans un fichier
+ *     FileMethods.writeFile("monFichier.txt", "Ceci est un message");
+ *
+ *     // Lecture d'un fichier
+ *     List<String> lines = FileMethods.readFile("monFichier.txt");
+ * </pre>
+ *
+ * @author Fabrice & Bruno
+ * @version 1.0
+ * @since 2025
+ */
 package utils;
 
 import java.io.File;

@@ -1,3 +1,23 @@
+/**
+ * La classe {@code TestingTeams} permet de créer une liste d'équipes célèbres avec un budget défini,
+ * et de les manipuler via une liste statique.
+ *
+ * <h2>Fonctionnalités principales :</h2>
+ * <ul>
+ *     <li>Crée plusieurs équipes célèbres avec un budget défini.</li>
+ *     <li>Fournit une méthode pour récupérer la liste de toutes les équipes créées.</li>
+ * </ul>
+ *
+ * <h2>Exemple d'utilisation :</h2>
+ * <pre>
+ *     TestingTeams.createSomeTeams();  // Crée les équipes
+ *     List<Teams> teams = TestingTeams.getTeamsList();  // Récupère la liste des équipes créées
+ * </pre>
+ *
+ * @author Fabrice & Bruno
+ * @version 1.0
+ * @since 2025
+ */
 package testGlobale;
 
 import entities.*;
@@ -28,6 +48,11 @@ public class TestingTeams {
         }
     }
 
+    /**
+     * Récupère la liste de tous les Teams créés.
+     *
+     * @return Liste des Teams.
+     */
     public static List<Teams> getTeamsList()
     {
         return  teamsList;

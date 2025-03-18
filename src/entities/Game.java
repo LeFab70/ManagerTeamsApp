@@ -1,10 +1,24 @@
-/*
-
-    But: Classe additionnelle permettant de gérer les matchs entre teams
+/**
+ * La classe Game représente un match entre deux équipes avec les informations clés comme
+ * les noms des équipes, le score, la date du match, et le nom de l'arbitre.
+ * Chaque match reçoit un identifiant unique généré automatiquement.
+ *
+ * <h2>Fonctionnalités principales :</h2>
+ * <ul>
+ *     <li>Gère les informations sur les équipes (équipe réception et visiteuse).</li>
+ *     <li>Stocke les scores de chaque équipe.</li>
+ *     <li>Enregistre la date du match et le nom de l'arbitre.</li>
+ *     <li>Génère un identifiant unique pour chaque match.</li>
+ * </ul>
+ *
+ * @author Fabrice & Bruno
+ * @version 1.0
+ * @since 2025
  */
 package entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Game {
@@ -80,12 +94,12 @@ public class Game {
 
     @Override
     public String toString() {
-        return "Game{" +
+          return "Game{" +
                 "receptionTeam=" + receptionTeam +
                 ", visitorTeam=" + visitorTeam +
                 ", recepTeamNumberGoals=" + recepTeamNumberGoals +
                 ", visitorTeamNumberGoals=" + visitorTeamNumberGoals +
-                ", dateOfGame=" + dateOfGame +
+                ", dateOfGame=" +this.dateOfGame +
                 ", refereeName='" + refereeName + '\'' +
                 ", id=" + id +
                 '}';

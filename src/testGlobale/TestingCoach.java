@@ -1,3 +1,19 @@
+/**
+ * La classe TestingCoach permet de créer une liste de coachs prédéfinis
+ * et de les manipuler via une liste statique.
+ * Elle gère également les exceptions liées aux salaires et aux dates de naissance.
+ *
+ * <h2>Fonctionnalités principales :</h2>
+ * <ul>
+ *     <li>Crée plusieurs coachs célèbres avec différentes licences et styles de jeu.</li>
+ *     <li>Gère les erreurs de salaire et de date de naissance via des exceptions personnalisées.</li>
+ *     <li>Fournit une méthode pour récupérer la liste de tous les coachs créés.</li>
+ * </ul>
+ *
+ * @author Fabrice & Bruno
+ * @version 1.0
+ * @since 2025
+ */
 package testGlobale;
 
 import entities.Coach;
@@ -16,6 +32,13 @@ public class TestingCoach {
     private static final List<Coach> coaches=new ArrayList<>();
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+    /**
+     * Crée une liste de coachs prédéfinis et les ajoute à la liste statique "coaches".
+     * Cette méthode gère les exceptions liées au salaire et aux dates de naissance.
+     *
+     * @throws SalaryException       Si le salaire d'un coach est invalide (trop bas ou trop haut).
+     * @throws DateOfBirthException   Si la date de naissance du coach est invalide (trop jeune ou trop vieux).
+     */
     //Create some Coach
     public static void createSomeCoach() throws SalaryException, DateOfBirthException {
         try {
@@ -142,6 +165,11 @@ public class TestingCoach {
         }
     }
 
+    /**
+     * Récupère la liste de tous les coachs créés.
+     *
+     * @return Liste des coachs.
+     */
     public static List<Coach> getCoaches()
     {
         return coaches;

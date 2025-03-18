@@ -1,3 +1,24 @@
+/**
+ * La classe {@code TestingGoalKeepers} permet de créer une liste de gardiens de but célèbres,
+ * de les manipuler via une liste statique, et de gérer les exceptions liées aux salaires et aux dates de naissance.
+ *
+ * <h2>Fonctionnalités principales :</h2>
+ * <ul>
+ *     <li>Crée plusieurs gardiens de but célèbres avec des informations telles que le nom, la date de naissance, le salaire, la nationalité, etc.</li>
+ *     <li>Vérifie la validité des salaires et des dates de naissance à travers des exceptions personnalisées {@link SalaryException} et {@link DateOfBirthException}.</li>
+ *     <li>Fournit une méthode pour récupérer la liste de tous les gardiens créés.</li>
+ * </ul>
+ *
+ * <h2>Exemple d'utilisation :</h2>
+ * <pre>
+ *     TestingGoalKeepers.createSomeGoalKeepers();  // Crée les gardiens de but
+ *     List<Goalkeeper> goalkeepers = TestingGoalKeepers.getGoalkeeperList();  // Récupère la liste des gardiens créés
+ * </pre>
+ *
+ * @author Fabrice & Bruno
+ * @version 1.0
+ * @since 2025
+ */
 package testGlobale;
 
 import entities.Goalkeeper;
@@ -147,6 +168,11 @@ public class TestingGoalKeepers {
         }
     }
 
+    /**
+     * Récupère la liste de tous les Goalkeeper créés.
+     *
+     * @return Liste des Goalkeeper.
+     */
     public static List<Goalkeeper> getGoalkeeperList()
     {
         return goalkeeperList;

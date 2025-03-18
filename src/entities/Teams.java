@@ -1,3 +1,21 @@
+/**
+ * La classe Teams représente une équipe de football.
+ * Elle contient une liste de joueurs, de gardiens de but, un entraîneur et un budget maximum.
+ * Un identifiant unique est généré automatiquement pour chaque équipe créée.
+ *
+ * <h2>Fonctionnalités principales :</h2>
+ * <ul>
+ *     <li>Gère une équipe composée de joueurs et de gardiens.</li>
+ *     <li>Assigne un coach à l'équipe.</li>
+ *     <li>Dispose d'un budget maximal pour encadrer les dépenses.</li>
+ *     <li>Génère un identifiant unique pour chaque nouvelle équipe.</li>
+ * </ul>
+ *
+ * @author Fabrice & Bruno
+ * @version 1.0
+ * @since 2025
+ */
+
 package entities;
 
 import java.util.ArrayList;
@@ -13,12 +31,22 @@ public class Teams {
     private double budgetMax;
     private Coach coach;
 
+    /**
+     * Constructeur permettant de créer une nouvelle équipe avec un nom et un budget.
+     * Un identifiant unique est automatiquement généré.
+     *
+     * @param name      Nom de l'équipe.
+     * @param budgetMax Budget maximum alloué à l'équipe.
+     */
     //les players ainsi que les gardiens seront ajoutés suivant les méthodes statiques définies dans gestionEquipe
     public Teams( String name, double budgetMax) {
         this.id = count.getAndIncrement();
         this.name = name;
         this.budgetMax = budgetMax;
     }
+    /**
+     * Entraîneur de l'équipe.
+     */
 
     public Coach getCoach() {
         return coach;
@@ -63,7 +91,9 @@ public class Teams {
     public void setGoalkeepers(List<Goalkeeper> goalkeepers) {
         this.goalkeepers = goalkeepers;
     }
-
+    /**
+     * Budget maximum alloué à l'équipe.
+     */
     public double getBudgetMax() {
         return budgetMax;
     }
