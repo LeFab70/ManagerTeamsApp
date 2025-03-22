@@ -1,3 +1,13 @@
+
+package utils;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 /**
  * La classe {@code FileMethods} fournit des méthodes utilitaires pour la gestion de fichiers,
  * permettant de lire et d'écrire des données dans des fichiers texte.
@@ -21,16 +31,6 @@
  * @version 1.0
  * @since Mars 2025
  */
-package utils;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class FileMethods {
 
     public static void writeFile(final String fichier,final String msg) throws FileNotFoundException {

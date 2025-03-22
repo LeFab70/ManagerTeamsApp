@@ -1,4 +1,12 @@
 package entities;
+
+import enums.Licence;
+import enums.StyleOfGame;
+import exceptions.DateOfBirthException;
+import exceptions.SalaryException;
+
+import java.time.LocalDate;
+import java.util.List;
 /**
  * La classe Coach hérite de la classe Person et représente un entraîneur avec des informations spécifiques
  * comme le nombre d'années d'expérience, les titres remportés, le style de jeu et la licence.
@@ -10,18 +18,10 @@ package entities;
  *     <li>Hérite des informations personnelles de la classe Person.</li>
  * </ul>
  *
- * @author Fabrice & Bruno
+ * @author Fabrice &amp; Bruno
  * @version 1.0
  * @since 2025
  */
-import enums.Licence;
-import enums.StyleOfGame;
-import exceptions.DateOfBirthException;
-import exceptions.SalaryException;
-
-import java.time.LocalDate;
-import java.util.List;
-
 public class Coach extends Person{
     private int numberOfYearsExperience;
     private int numberOfTitle;

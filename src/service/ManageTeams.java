@@ -1,3 +1,12 @@
+package service;
+
+import entities.*;
+import exceptions.*;
+import testGlobale.TestingTeams;
+import utils.Utils;
+
+import java.util.ArrayList;
+import java.util.List;
 /**
  * La classe ManageTeams permet de gérer les équipes de football,
  * en ajoutant, retirant ou transférant des joueurs, coachs et gardiens.
@@ -11,24 +20,13 @@
  *     <li>Supprimer une équipe de la liste globale des équipes.</li>
  * </ul>
  *
- * @author Fabrice & Bruno
+ * @author Fabrice &amp; Bruno
  * @version 1.0
  * @since 2025
  */
-
-package service;
-
-import entities.*;
-import exceptions.*;
-import testGlobale.TestingTeams;
-import utils.Utils;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class ManageTeams {
     private static final int MAX_PLAYERS = 25;
-    private static final int MAX_GOALKEEPERS = 25;
+    private static final int MAX_GOALKEEPERS = 2;
 
     private List<Goalkeeper> goalkeeperList = new ArrayList<Goalkeeper>();
     private Coach coach;
@@ -36,7 +34,7 @@ public class ManageTeams {
 
 
     //Ajouter un nouveau joueur ou coach ou gardien dans la liste avec des contraintes définies
-    public void addPlayer(Person person, Teams teamsDestination) throws TeamsFullException, PlayerAlreadySavedException, TeamBudgetMaxException, CoachAlreadyExist {
+    public void addPlayer(Person person, Teams teamsDestination) throws TeamsFullException, PlayerAlreadySavedException, TeamBudgetMaxException, CoachAlreadyExistException {
         if (person == null || teamsDestination == null)
             throw new IllegalArgumentException("Fournir les paramètres");
 
@@ -65,14 +63,14 @@ public class ManageTeams {
             //coach l'équipe de destination s'il existe
             coach = teamsDestination.getCoach();
             if (coach != null)
-                throw new CoachAlreadyExist(teamsDestination.getName() + " a dèjà un coach");
+                throw new CoachAlreadyExistException(teamsDestination.getName() + " a dèjà un coach");
             //Ajout du coach
             teamsDestination.setCoach((Coach) person);
 
         } else if (person instanceof Goalkeeper) {
 
             goalkeeperList = teamsDestination.getGoalkeepers();
-            if (goalkeeperList.size() >= MAX_GOALKEEPERS)
+            if (goalkeeperList.size() == MAX_GOALKEEPERS)
                 throw new TeamsFullException("Liste des gardiens l'équipe " + teamsDestination.getName() + " pleine");
             if (goalkeeperList.contains((Goalkeeper) person))
                 throw new PlayerAlreadySavedException("Gardien déjà dans la liste de " + teamsDestination.getName());
@@ -128,11 +126,13 @@ public class ManageTeams {
         System.out.println(person.getClass().getName() + " " + person.getName() + "a été supprimé avec succès de l'équipe " + teamsSource.getName());
     }
 
+
   //Transfert d'un joueur d'une équipe à une autre
     public void transferPlayer(Person person, Teams teamsSource, Teams teamsDestination, double amountTransfer) throws Exception {
 
         if (person == null || teamsSource == null || teamsDestination == null)
             throw new IllegalArgumentException("Fournir les paramètres");
+
         //Tester le budget de l'équipe
         Utils.checkBudget(person, teamsDestination, amountTransfer);
 

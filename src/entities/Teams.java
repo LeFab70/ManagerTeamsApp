@@ -1,3 +1,10 @@
+
+
+package entities;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 /**
  * La classe Teams représente une équipe de football.
  * Elle contient une liste de joueurs, de gardiens de but, un entraîneur et un budget maximum.
@@ -15,13 +22,6 @@
  * @version 1.0
  * @since 2025
  */
-
-package entities;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class Teams {
     private final static AtomicInteger count = new AtomicInteger(1);
     private int id;

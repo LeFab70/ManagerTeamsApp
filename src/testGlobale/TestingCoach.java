@@ -1,3 +1,17 @@
+
+package testGlobale;
+
+import entities.Coach;
+import enums.Licence;
+import enums.StyleOfGame;
+import exceptions.DateOfBirthException;
+import exceptions.SalaryException;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 /**
  * La classe TestingCoach permet de créer une liste de coachs prédéfinis
  * et de les manipuler via une liste statique.
@@ -14,20 +28,6 @@
  * @version 1.0
  * @since 2025
  */
-package testGlobale;
-
-import entities.Coach;
-import enums.Licence;
-import enums.StyleOfGame;
-import exceptions.DateOfBirthException;
-import exceptions.SalaryException;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class TestingCoach {
     private static final List<Coach> coaches=new ArrayList<>();
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

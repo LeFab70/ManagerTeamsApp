@@ -1,3 +1,11 @@
+
+package entities;
+
+import enums.FieldPosition;
+import exceptions.DateOfBirthException;
+import exceptions.SalaryException;
+
+import java.time.LocalDate;
 /**
  * La classe Goalkeeper représente un joueur spécialisé en tant que gardien de but,
  * héritant des caractéristiques générales d'un joueur et ajoutant des attributs spécifiques
@@ -14,14 +22,6 @@
  * @version 1.0
  * @since 2025
  */
-package entities;
-
-import enums.FieldPosition;
-import exceptions.DateOfBirthException;
-import exceptions.SalaryException;
-
-import java.time.LocalDate;
-
 public class Goalkeeper extends Player{
     private int reflexes; // note de 0 sur 10
     private int numberOfPenaltiesSaved;

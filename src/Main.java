@@ -1,3 +1,13 @@
+
+
+import service.ManageTeams;
+import entities.*;
+import testGlobale.*;
+import utils.FileMethods;
+import utils.Utils;
+
+import java.util.List;
+
 /*
  * ====================================================================
  * Nom du Programme     : Foot Manager
@@ -11,16 +21,6 @@
  * Version             : 1.0
  * ====================================================================
  */
-
-import service.ManageTeams;
-import entities.*;
-import testGlobale.*;
-import utils.FileMethods;
-import utils.Utils;
-
-import java.util.List;
-
-
 /**
  * The type Main.
  */
@@ -60,6 +60,7 @@ public class Main {
         Utils.displayObject(allCoach);
         System.out.println("\n\n========================All Keepers====================\n");
         Utils.displayObject(allGoalKeepers);
+
 
         System.out.println("\n\n========================Add players Coach and keepers to the teams====================\n");
         int startIndexPlayerByTeam=0;

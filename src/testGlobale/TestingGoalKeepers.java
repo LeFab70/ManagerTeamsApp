@@ -1,3 +1,15 @@
+
+package testGlobale;
+
+import entities.Goalkeeper;
+import enums.FieldPosition;
+import exceptions.DateOfBirthException;
+import exceptions.SalaryException;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * La classe {@code TestingGoalKeepers} permet de créer une liste de gardiens de but célèbres,
  * de les manipuler via une liste statique, et de gérer les exceptions liées aux salaires et aux dates de naissance.
@@ -19,18 +31,6 @@
  * @version 1.0
  * @since 2025
  */
-package testGlobale;
-
-import entities.Goalkeeper;
-import enums.FieldPosition;
-import exceptions.DateOfBirthException;
-import exceptions.SalaryException;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-
 public class TestingGoalKeepers {
     private static final List<Goalkeeper> goalkeeperList=new ArrayList<>();
     //Date formatter

@@ -1,3 +1,9 @@
+
+package entities;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.concurrent.atomic.AtomicInteger;
 /**
  * La classe Game représente un match entre deux équipes avec les informations clés comme
  * les noms des équipes, le score, la date du match, et le nom de l'arbitre.
@@ -15,12 +21,6 @@
  * @version 1.0
  * @since 2025
  */
-package entities;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class Game {
     private String receptionTeam;
     private String visitorTeam;

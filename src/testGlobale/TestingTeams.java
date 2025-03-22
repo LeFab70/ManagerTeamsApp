@@ -1,3 +1,11 @@
+
+package testGlobale;
+
+import entities.*;
+
+import java.util.ArrayList;
+
+import java.util.List;
 /**
  * La classe {@code TestingTeams} permet de créer une liste d'équipes célèbres avec un budget défini,
  * et de les manipuler via une liste statique.
@@ -18,14 +26,6 @@
  * @version 1.0
  * @since 2025
  */
-package testGlobale;
-
-import entities.*;
-
-import java.util.ArrayList;
-
-import java.util.List;
-
 public class TestingTeams {
 
     private static final List<Teams> teamsList=new ArrayList<>();

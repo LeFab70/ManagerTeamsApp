@@ -1,3 +1,11 @@
+
+package entities;
+
+import enums.FieldPosition;
+import exceptions.DateOfBirthException;
+import exceptions.SalaryException;
+
+import java.time.LocalDate;
 /**
  * La classe Player représente un joueur de football, héritant des caractéristiques d'une Personne
  * et ajoutant des attributs spécifiques comme la position, le talent, le numéro de maillot,
@@ -15,14 +23,6 @@
  * @version 1.0
  * @since 2025
  */
-package entities;
-
-import enums.FieldPosition;
-import exceptions.DateOfBirthException;
-import exceptions.SalaryException;
-
-import java.time.LocalDate;
-
 public class Player extends Person{
     private FieldPosition fieldPosition;
     private String talent;  //sur une échelle de 0 à 10

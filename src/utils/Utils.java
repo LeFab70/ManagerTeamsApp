@@ -1,3 +1,16 @@
+
+package utils;
+
+import entities.Game;
+import entities.Person;
+import entities.Teams;
+import exceptions.TeamBudgetMaxException;
+import testGlobale.TestingTeams;
+
+import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 /**
  * La classe {@code Utils} fournit des méthodes utilitaires pour la gestion de divers aspects du jeu,
  * y compris la vérification du budget d'un club, l'affichage de listes d'objets et la génération de matchs
@@ -26,19 +39,6 @@
  * @version 1.0
  * @since 2025
  */
-package utils;
-
-import entities.Game;
-import entities.Person;
-import entities.Teams;
-import exceptions.TeamBudgetMaxException;
-import testGlobale.TestingTeams;
-
-import java.io.FileNotFoundException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-
 //Méthodes utilitaires
 public class Utils {
 
@@ -76,7 +76,9 @@ public class Utils {
         int scoreReceptionTeams=(int) (Math.random()*9+1); //pour générer un nombre de buts marqués pour l'équipe qui reçoit entre 0 et 10
         Teams teamsReceived=allTeams.get(randomNumberReceive);
 
-        //Obliger un autre random tant quon a la même équipe qui est tiré
+        //Todo: si equipe n'a pas de joueurs alors on ne peut pas jouer
+
+        //Obliger un autre random tant qu<on a la même équipe qui est tiré
         do {
             randomNumberVisitor = (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM + 1) + MIN_RANDOM);
         } while (randomNumberReceive==randomNumberVisitor);

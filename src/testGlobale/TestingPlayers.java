@@ -1,3 +1,15 @@
+
+package testGlobale;
+
+import entities.Player;
+import enums.FieldPosition;
+import exceptions.DateOfBirthException;
+import exceptions.SalaryException;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * La classe {@code TestingPlayers} permet de créer une liste de joueurs célèbres, de les manipuler via une liste statique,
  * et de gérer les exceptions liées aux salaires et aux dates de naissance.
@@ -19,18 +31,6 @@
  * @version 1.0
  * @since 2025
  */
-package testGlobale;
-
-import entities.Player;
-import enums.FieldPosition;
-import exceptions.DateOfBirthException;
-import exceptions.SalaryException;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-
 public class TestingPlayers {
     private static final List<Player> playerList=new ArrayList<>();
     //Date formatter

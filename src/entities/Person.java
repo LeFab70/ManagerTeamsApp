@@ -1,3 +1,12 @@
+
+package entities;
+
+import exceptions.DateOfBirthException;
+import exceptions.SalaryException;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.concurrent.atomic.AtomicInteger;
 /**
  * La classe abstraite Person représente une personne générique avec des informations personnelles
  * telles que le nom, la date de naissance, le salaire, la nationalité, le poids et la taille.
@@ -16,15 +25,6 @@
  * @version 1.0
  * @since 2025
  */
-package entities;
-
-import exceptions.DateOfBirthException;
-import exceptions.SalaryException;
-
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.concurrent.atomic.AtomicInteger;
-
 public abstract class Person {
     private static final AtomicInteger count= new AtomicInteger(1);
     private  int id;
