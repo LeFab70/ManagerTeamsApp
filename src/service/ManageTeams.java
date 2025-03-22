@@ -16,7 +16,7 @@
  * @since 2025
  */
 
-package controller;
+package service;
 
 import entities.*;
 import exceptions.*;
