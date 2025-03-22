@@ -128,25 +128,33 @@ public class ManageTeams {
         System.out.println(person.getClass().getName() + " " + person.getName() + "a été supprimé avec succès de l'équipe " + teamsSource.getName());
     }
 
-    //Transfert d'un joueur d'une équipe à une autre
-    public void transferPlayer(Person person, Teams teamsSource, Teams teamsDestination, double amountTransfer) throws PlayerNotFoundException, TeamBudgetMaxException, TeamsFullException, PlayerAlreadySavedException, CoachAlreadyExist {
+  //Transfert d'un joueur d'une équipe à une autre
+    public void transferPlayer(Person person, Teams teamsSource, Teams teamsDestination, double amountTransfer) throws Exception {
 
         if (person == null || teamsSource == null || teamsDestination == null)
             throw new IllegalArgumentException("Fournir les paramètres");
         //Tester le budget de l'équipe
         Utils.checkBudget(person, teamsDestination, amountTransfer);
 
-        // retirer le joueur de son équipe
-        removePlayer(person, teamsSource);
-        //ajouter le joueur dans la nouvelle équipe
-        addPlayer(person, teamsDestination);
+        try {
+            // retirer le joueur de son équipe
+            removePlayer(person, teamsSource);
+            //ajouter le joueur dans la nouvelle équipe
+            addPlayer(person, teamsDestination);
 
-        // transférer la personne et mettre à jour le budget des équipes
-        teamsDestination.setBudgetMax(teamsDestination.getBudgetMax() - amountTransfer);
-        teamsSource.setBudgetMax(teamsSource.getBudgetMax() + amountTransfer);
-        System.out.println(person.getClass().getName() + "  " + person.getName() + " a été transféré de " + teamsSource.getName() + " avec succès vers " + teamsDestination.getName());
-        //Todo: comment régler le soucis de annulation de transfert si on a déjà retirer le joueur est qu'il ya une erreur dans l'ajout?? Rollback??
+            // transférer la personne et mettre à jour le budget des équipes
+            teamsDestination.setBudgetMax(teamsDestination.getBudgetMax() - amountTransfer);
+            teamsSource.setBudgetMax(teamsSource.getBudgetMax() + amountTransfer);
+            System.out.println(person.getClass().getName() + "  " + person.getName() + " a été transféré de " + teamsSource.getName() + " avec succès vers " + teamsDestination.getName());
+
+        } catch (Exception e) {
+            addPlayer(person, teamsSource);  //rollback annuler le transfert et remettre le joueur dans son équipe
+            throw new Exception("Erreur lors du transfert du joueur " + person.getName() + " de " + teamsSource.getName() + " vers " + teamsDestination.getName());
+            //Todo: comment régler le soucis de annulation de transfert si on a déjà retirer le joueur est qu'il ya une erreur dans l'ajout?? Rollback??
+
+        }
     }
+
 
 
     //Retirer une teams de la liste
